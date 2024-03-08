@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.userlist {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+}
+
+.userItem {
+  margin: 12px;
+  padding: 12px;
+  background-color: wheat;
+  border-radius: 10px;
+}
+
+.userImage {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+.userImage, .userName, .userGender, .userFriend {
+  margin: 4px 6px;
+}
+.userName {
+  border-bottom: 1px solid black;
+}
+
+.userGender {
+  border-top: 1px solid black;
+}
+
+.userFriend {
+  border-top: 1px solid black;
+}
+
+.setUserForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-wrap {
+  background-color: wheat;
+}
