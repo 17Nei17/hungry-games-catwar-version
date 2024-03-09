@@ -3,7 +3,7 @@ import AddUserForm from "./AddUserForm"
 import React, { useState, useEffect } from 'react';
 // let obj = { img: 'src', name: 'str', gender: 'srt', friend: 'name' }
 
-function UserList() {
+function UserList(props) {
   const [users, setUsers] = useState([]);
   const [isShowForm, setShowForm] = useState(false);
   useEffect(() => {
@@ -24,14 +24,13 @@ function UserList() {
 
   function clearUserList() {
     setUsers([]);
-
   }
 
 
   function addUser(userObject) {
     setUsers((prev) => [
       ...prev,
-      { 'name': userObject.name, 'img': userObject.img, 'gender': userObject.gender, 'friend': userObject.friend }
+      { 'name': userObject.name, 'img': userObject.img, 'gender': userObject.gender, 'friend': userObject.friend, 'isAlive': true, statusText: "Осматривается" }
     ]);
     setShowForm(false);
   }
@@ -46,6 +45,7 @@ function UserList() {
       {!isShowForm && <button onClick={() => { setShowForm(true) }}>Добавить участника</button>}
       {!isShowForm && <button onClick={() => { clearUserList() }}>Удалить всех</button>}
       {isShowForm && <AddUserForm addUser={addUser}></AddUserForm>}
+      <button onClick={() => { props.startGame(users) }}>Начать игру</button>
     </div>
 
   );
