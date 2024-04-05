@@ -30,7 +30,16 @@ function UserList(props) {
   function addUser(userObject) {
     setUsers((prev) => [
       ...prev,
-      { 'name': userObject.name, 'img': userObject.img, 'gender': userObject.gender, 'friend': userObject.friend, 'isAlive': true, statusText: "Осматривается" }
+      {
+        'name': userObject.name,
+        'isUsed': false,
+        'img': userObject.img,
+        'gender': userObject.gender,
+        'friend': userObject.friend,
+        'isAlive': true,
+        'statusText': "Осматривается",
+        'isfinallyMovedFromGame': false,
+      }
     ]);
     setShowForm(false);
   }

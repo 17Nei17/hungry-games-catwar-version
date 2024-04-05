@@ -11,7 +11,6 @@ function AddUserForm(props) {
     function handleSubmit(event) {
         event.preventDefault();
         props.addUser({ name: name, gender: gender, img: img })
-        console.log(img);
     }
 
     return (

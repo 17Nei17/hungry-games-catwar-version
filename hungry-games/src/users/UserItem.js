@@ -7,7 +7,6 @@ function UserItem(props) {
     function deleteUser(deletedName) {
         props.users.forEach((user, index) => {
             if (user.name === deletedName) {
-                console.log(user);
                 props.removeUserByIndex(index);
             }
         });

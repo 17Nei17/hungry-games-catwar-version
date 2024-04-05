@@ -1,7 +1,13 @@
-let suicideAction = [
-    { maleText: "Умер от истощения", femaleText: "Умерла от истощения" },
-    { maleText: "Умер от кринжа", femaleText: "Умерла от кринжа" },
-    { maleText: "Сьел ядовитую рыбу и умер", femaleText: "Сьела ядовитую рыбу и умерла" },
-]
+function suicideAction(number = 0, name1) {
+    switch (number) {
+        case 0:
+            return `${name1} умер от истощения`
+        case 1:
+            return `${name1} умер от кринжа`
+        case 2:
+            return `${name1} сьел ядовитую рыбу и умер`
+        default:
+    }
+}
 
 export default suicideAction;

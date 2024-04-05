@@ -10,7 +10,62 @@ function App() {
   const [usersList, setUsersList] = useState([]);
 
   function startGame(list) {
-    setUsersList(list);
+    setUsersList([
+      {
+        "name": "Сельдерей",
+        "isUsed": false,
+        "img": "",
+        "gender": "",
+        "isAlive": true,
+        "statusText": "Осматривается",
+        "isfinallyMovedFromGame": false
+      },
+      {
+        "name": "Умка",
+        "isUsed": false,
+        "img": "",
+        "gender": "",
+        "isAlive": true,
+        "statusText": "Осматривается",
+        "isfinallyMovedFromGame": false
+      },
+      {
+        "name": "Chas_mem",
+        "isUsed": false,
+        "img": "",
+        "gender": "",
+        "isAlive": true,
+        "statusText": "Осматривается",
+        "isfinallyMovedFromGame": false
+      },
+      {
+        "name": "Echpochmak",
+        "isUsed": false,
+        "img": "",
+        "gender": "",
+        "isAlive": true,
+        "statusText": "Осматривается",
+        "isfinallyMovedFromGame": false
+      },
+      {
+        "name": "Нова",
+        "isUsed": false,
+        "img": "",
+        "gender": "",
+        "isAlive": true,
+        "statusText": "Осматривается",
+        "isfinallyMovedFromGame": false
+      },
+      {
+        "name": "Тархун",
+        "isUsed": false,
+        "img": "",
+        "gender": "",
+        "isAlive": true,
+        "statusText": "Осматривается",
+        "isfinallyMovedFromGame": false
+      }
+    ]);
     setAppState('game');
   }
   function endGame(list) {

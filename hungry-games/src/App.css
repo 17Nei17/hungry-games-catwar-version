@@ -30,8 +30,8 @@
 
 .userlist {
   display: flex;
-  flex-direction: row;
-  align-items: end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -42,14 +42,34 @@
   border-radius: 10px;
 }
 
+.userItem-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.cornflowerblue {
+  background: cornflowerblue;
+  margin: 12px;
+}
+
+.ordered {
+  order: 1;
+  background-color: red !important;
+}
+
 .userImage {
   max-width: 100px;
   max-height: 100px;
   object-fit: contain;
 }
-.userImage, .userName, .userGender, .userFriend {
+
+.userImage,
+.userName,
+.userGender,
+.userFriend {
   margin: 4px 6px;
 }
+
 .userName {
   border-bottom: 1px solid black;
 }
@@ -76,4 +96,8 @@
 
 .form-wrap {
   background-color: wheat;
+}
+
+.hidden {
+  display: none;
 }
