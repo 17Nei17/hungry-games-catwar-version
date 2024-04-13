@@ -28,10 +28,9 @@ function Game(props) {
                     if (newInfo.anotherUserIndex !== undefined) {
                         newArray[index].secondUser = newArray[newInfo.anotherUserIndex];
                         newArray[newInfo.anotherUserIndex].isUsed = true;
-                        newArray[newInfo.anotherUserIndex].isAlive = true;
+                        newArray[newInfo.anotherUserIndex].isAlive = newInfo.isAggresiveAction ? false : true;
                     }
                 }
-
             }
         })
         props.setUsersList(newArray);
@@ -62,15 +61,15 @@ function Game(props) {
         switch (action) {
             case 0:
                 // suicide
-                let suicideStatusNumber = Math.floor(Math.random() * suicideAction.length);
+                let suicideStatusNumber = Math.floor(Math.random() * (suicideAction.caseLength + 1));
                 return { text: suicideAction(suicideStatusNumber, user.name), isAlive: false };
             case 1:
                 // idle
-                let idleStatusNumber = Math.floor(Math.random() * IdleAction.length);
+                let idleStatusNumber = Math.floor(Math.random() * (IdleAction.caseLength + 1));
                 return { text: IdleAction(idleStatusNumber, user.name), isAlive: true };
             case 2:
                 // friendly 
-                let friendlyStatusNumber = Math.floor(Math.random() * 1);
+                let friendlyStatusNumber = Math.floor(Math.random() * (friendlyAction.caseLength + 1));
                 let anotherUserIndex;
                 let secondName;
                 if (result !== -1) {
@@ -82,14 +81,14 @@ function Game(props) {
                 }
             case 3:
                 // aggresive 
-                let aggresiveStatusNumber = Math.floor(Math.random() * 1);
+                let aggresiveStatusNumber = Math.floor(Math.random() * (AggresiveAction.caseLength + 1));
                 let diedUserIndex;
                 // дописать убийство
                 let diedUser;
                 if (result !== -1) {
                     diedUserIndex = result;
                     diedUser = props.usersList[diedUserIndex].name;
-                    return { text: AggresiveAction(aggresiveStatusNumber, currentFriendName, diedUser), isAlive: true, anotherUserIndex: diedUserIndex };
+                    return { text: AggresiveAction(aggresiveStatusNumber, currentFriendName, diedUser), isAlive: true, anotherUserIndex: diedUserIndex, isAggresiveAction: true };
                 } else {
                     return { text: IdleAction(999, user.name), isAlive: true };
                 }

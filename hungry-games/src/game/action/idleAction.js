@@ -14,4 +14,6 @@ function idleAction(number = 0, name1) {
     }
 }
 
+idleAction.caseLength = 3;
+
 export default idleAction;

@@ -10,4 +10,6 @@ function suicideAction(number = 0, name1) {
     }
 }
 
+suicideAction.caseLength = 2;
+
 export default suicideAction;
