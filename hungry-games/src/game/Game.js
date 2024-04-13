@@ -104,6 +104,9 @@ function Game(props) {
         let newDay = stateBattle.time === "Ночь" ? stateBattle.day + 1 : stateBattle.day;
         let newTime = stateBattle.time === "Ночь" ? 'День' : "Ночь";
         setStateBattle({ day: newDay, time: newTime, action: dayStatusList[statusNumber].status });
+        if ((props.usersList.filter((user) => user.isAlive == true)).length <= 1) {
+            props.endGame();
+        }
 
         addStatuses();
     }
@@ -118,15 +121,15 @@ function Game(props) {
                                 <div className="userName">{user.name}</div>
                                 <img className="userImage" src={user.img} />
                                 <div className="userName">{user.isAlive ? 'живой' : 'мертв'}</div>
-                                <div>isUsed={user.isUsed.toString()}</div>
-                                <div>isfinallyMovedFromGame = {user.isfinallyMovedFromGame.toString()}</div>
+                                {/* <div>isUsed={user.isUsed.toString()}</div>
+                                <div>isfinallyMovedFromGame = {user.isfinallyMovedFromGame.toString()}</div> */}
                             </div>
                             <div className="userItem">
                                 <div className="userName">{user.secondUser.name}</div>
                                 <img className="userImage" src={user.secondUser.img} />
                                 <div className="userName">{user.secondUser.isAlive ? 'живой' : 'мертв'}</div>
-                                <div>isUsed={user.secondUser.isUsed.toString()}</div>
-                                <div>isfinallyMovedFromGame = {user.secondUser.isfinallyMovedFromGame.toString()}</div>
+                                {/* <div>isUsed={user.secondUser.isUsed.toString()}</div>
+                                <div>isfinallyMovedFromGame = {user.secondUser.isfinallyMovedFromGame.toString()}</div> */}
                             </div>
                         </div>
                         <div>{user.statusText}</div>
@@ -135,13 +138,13 @@ function Game(props) {
             } else {
                 return <div className={user.isUsed ? 'userItem hidden' : 'userItem' + (user.isfinallyMovedFromGame ? ' ordered' : '')}>
                     <div className="userName">{user.name}</div>
-                    <div>isUsed={user.isUsed.toString()}</div>
+                    {/* <div>isUsed={user.isUsed.toString()}</div> */}
                     <img className="userImage" src={user.img} />
                     {user.secondUser && <img className="userImage" src={user.secondUser.img} />}
 
                     <div className="userName">{user.isAlive ? 'живой' : 'мертв'}</div>
                     <div>{user.statusText}</div>
-                    <div>isfinallyMovedFromGame = {user.isfinallyMovedFromGame.toString()}</div>
+                    {/* <div>isfinallyMovedFromGame = {user.isfinallyMovedFromGame.toString()}</div> */}
                 </div>
             }
         }

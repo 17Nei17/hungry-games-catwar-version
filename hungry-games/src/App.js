@@ -10,6 +10,7 @@ function App() {
   const [usersList, setUsersList] = useState([]);
 
   function startGame(list) {
+    // setUsersList(list);
     setUsersList([
       {
         "name": "Сельдерей",
@@ -68,7 +69,7 @@ function App() {
     ]);
     setAppState('game');
   }
-  function endGame(list) {
+  function endGame(object) {
     setAppState('end')
   }
 
@@ -76,7 +77,7 @@ function App() {
     <div className="App">
       {appState === 'settings' && <UserList startGame={startGame} />}
       {appState === 'game' && <Game usersList={usersList} endGame={endGame} setUsersList={setUsersList} />}
-      {appState === 'end' && <End />}
+      {appState === 'end' && <End usersList={usersList}/>}
     </div>
   );
 }

@@ -28,10 +28,10 @@ function AddUserForm(props) {
                     <p>Картинка (ссылка)</p>
                     <input type="text" name="img" value={img} onChange={(event) => setImage(event.target.value)} />
                 </label>
-                <label className="row-flex">
+                {/* <label className="row-flex">
                     <p>Пол</p>
                     <input type="text" name="gender" value={gender} onChange={(event) => setGender(event.target.value)} />
-                </label>
+                </label> */}
                 <input type="submit" value="Отправить" />
             </div>
 
