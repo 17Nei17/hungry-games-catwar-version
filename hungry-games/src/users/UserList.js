@@ -28,32 +28,41 @@ function UserList(props) {
 
 
   function addUser(userObject) {
-    setUsers((prev) => [
-      ...prev,
-      {
-        'name': userObject.name,
-        'isUsed': false,
-        'img': userObject.img,
-        'gender': userObject.gender,
-        'friend': userObject.friend,
-        'isAlive': true,
-        'statusText': "Осматривается",
-        'isfinallyMovedFromGame': false,
-      }
-    ]);
+    let checkName = users.filter((user) => user.name == userObject.name);
+    if (checkName.length > 0) {
+      props.setHelpText("Персонаж с таким именем уже есть");
+    } else {
+      setUsers((prev) => [
+        ...prev,
+        {
+          'name': userObject.name,
+          'isUsed': false,
+          'img': userObject.img,
+          'gender': userObject.gender,
+          'friend': userObject.friend,
+          'isAlive': true,
+          'statusText': "Осматривается",
+          'isfinallyMovedFromGame': false,
+        }
+      ]);
+      // setShowForm(false);
+      props.setHelpText("");
+    }
+  }
+
+  function settings() {
     setShowForm(false);
   }
 
 
   return (
     <div>
-      <div>Список участников</div>
+      {isShowForm && <AddUserForm addUser={addUser} settings={settings}></AddUserForm>}
       <div className="userlist">
         {renderUsers()}
       </div>
       {!isShowForm && <button onClick={() => { setShowForm(true) }}>Добавить участника</button>}
       {!isShowForm && <button onClick={() => { clearUserList() }}>Удалить всех</button>}
-      {isShowForm && <AddUserForm addUser={addUser}></AddUserForm>}
       <button onClick={() => { props.startGame(users) }}>Начать игру</button>
     </div>
 

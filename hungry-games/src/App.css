@@ -99,13 +99,15 @@
 
 .form-wrap {
   background-color: wheat;
+  padding: 12px;
 }
 
 .hidden {
   display: none;
 }
 
-button {
+button,
+.button {
   margin-top: 12px;
   padding: 6px;
   color: black;
@@ -114,10 +116,15 @@ button {
   border-radius: 10px;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   background-color: burlywood;
 }
 
 button+button {
   margin-left: 12px;
+}
+
+.info-text {
+  color: red
 }

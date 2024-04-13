@@ -8,6 +8,7 @@ import End from './end/End';
 function App() {
   const [appState, setAppState] = useState('settings');
   const [usersList, setUsersList] = useState([]);
+  const [helpText, setHelpText] = useState("");
 
   function startGame(list) {
     setUsersList(list);
@@ -67,17 +68,24 @@ function App() {
     //     "isfinallyMovedFromGame": false
     //   }
     // ]);
-    setAppState('game');
+    if (list.length > 1) {
+      setAppState('game');
+      setHelpText('');
+    } else {
+      setHelpText("Нужно добавить как минимум 2 персонажа");
+    }
   }
-  function endGame(object) {
+  function endGame() {
+    setHelpText('');
     setAppState('end')
   }
 
   return (
     <div className="App">
-      {appState === 'settings' && <UserList startGame={startGame} />}
-      {appState === 'game' && <Game usersList={usersList} endGame={endGame} setUsersList={setUsersList} />}
-      {appState === 'end' && <End usersList={usersList}/>}
+      <div class="info-text">{helpText}</div>
+      {appState === 'settings' && <UserList startGame={startGame} setHelpText={setHelpText} />}
+      {appState === 'game' && <Game usersList={usersList} endGame={endGame} setUsersList={setUsersList}/>}
+      {appState === 'end' && <End usersList={usersList} />}
     </div>
   );
 }
