@@ -1,5 +1,4 @@
-import UserItem from "./UserItem"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // let obj = { img: 'src', name: 'str', gender: 'srt', friend: 'name' }
 
 function AddUserForm(props) {
