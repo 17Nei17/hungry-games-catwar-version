@@ -4,6 +4,7 @@ import suicideAction from "./action/suicideAction"
 import dayStatusList from "./action/dayStatusList"
 import friendlyAction from "./action/friendlyAction"
 import AggresiveAction from "./action/AggresiveAction"
+import aloneAction from "./action/aloneAction"
 
 function Game(props) {
     const [stateBattle, setStateBattle] = useState({ day: 1, action: 'Начало первого дня', time: "День" });
@@ -54,22 +55,33 @@ function Game(props) {
     }
 
     function setStatus(user, newArray) {
-        // let action = Math.floor(Math.random() * 4) // 4 это количество файлов с экшенами
         let currentFriendName = user.name;
-        let action = Math.floor(Math.random() * 4);
+
+        let action = Math.floor(Math.random() * 100);
+        console.log(action);
+        if (action >= 0 && action <= 10) {
+            action = 'suicide';
+        } else if (action > 10 && action <= 50) {
+            action = 'idle';
+        } else if (action > 50 && action <= 80) {
+            action = 'friendly';
+        } else if (action > 80 && action <= 100) {
+            action = 'aggresive';
+        }
+
         const result = newArray.findIndex((item) => (item.name !== currentFriendName && item.isAlive && !item.isSettedStatus && !item.isUsed));
         switch (action) {
-            case 0:
+            case 'suicide':
                 // suicide
-                let suicideStatusNumber = Math.floor(Math.random() * (suicideAction.caseLength + 1));
+                let suicideStatusNumber = Math.floor(Math.random() * (suicideAction.caseLength));
                 return { text: suicideAction(suicideStatusNumber, user.name), isAlive: false };
-            case 1:
+            case 'idle':
                 // idle
-                let idleStatusNumber = Math.floor(Math.random() * (IdleAction.caseLength + 1));
+                let idleStatusNumber = Math.floor(Math.random() * (IdleAction.caseLength));
                 return { text: IdleAction(idleStatusNumber, user.name), isAlive: true };
-            case 2:
+            case 'friendly':
                 // friendly 
-                let friendlyStatusNumber = Math.floor(Math.random() * (friendlyAction.caseLength + 1));
+                let friendlyStatusNumber = Math.floor(Math.random() * (friendlyAction.caseLength));
                 let anotherUserIndex;
                 let secondName;
                 if (result !== -1) {
@@ -77,20 +89,21 @@ function Game(props) {
                     secondName = props.usersList[anotherUserIndex].name;
                     return { text: friendlyAction(friendlyStatusNumber, currentFriendName, secondName), isAlive: true, anotherUserIndex: anotherUserIndex };
                 } else {
-                    return { text: IdleAction(999, user.name), isAlive: true };
+                    let aloneActionNumber = Math.floor(Math.random() * (aloneAction.caseLength));
+                    return { text: aloneAction(aloneActionNumber, user.name), isAlive: true };
                 }
-            case 3:
+            case 'aggresive':
                 // aggresive 
-                let aggresiveStatusNumber = Math.floor(Math.random() * (AggresiveAction.caseLength + 1));
+                let aggresiveStatusNumber = Math.floor(Math.random() * (AggresiveAction.caseLength));
                 let diedUserIndex;
-                // дописать убийство
                 let diedUser;
                 if (result !== -1) {
                     diedUserIndex = result;
                     diedUser = props.usersList[diedUserIndex].name;
                     return { text: AggresiveAction(aggresiveStatusNumber, currentFriendName, diedUser), isAlive: true, anotherUserIndex: diedUserIndex, isAggresiveAction: true };
                 } else {
-                    return { text: IdleAction(999, user.name), isAlive: true };
+                    let aloneActionNumber = Math.floor(Math.random() * (aloneAction.caseLength));
+                    return { text: aloneAction(aloneActionNumber, user.name), isAlive: true };
                 }
             default:
 

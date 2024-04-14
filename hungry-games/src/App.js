@@ -11,70 +11,70 @@ function App() {
   const [helpText, setHelpText] = useState("");
 
   function startGame(list) {
-    // setUsersList(list);
-    setUsersList([
-      {
-        "name": "Сельдерей",
-        "isUsed": false,
-        "img": "",
-        "gender": "",
-        "isAlive": true,
-        "statusText": "Осматривается",
-        "isfinallyMovedFromGame": false
-      },
-      {
-        "name": "Умка",
-        "isUsed": false,
-        "img": "",
-        "gender": "",
-        "isAlive": true,
-        "statusText": "Осматривается",
-        "isfinallyMovedFromGame": false
-      },
-      {
-        "name": "Chas_mem",
-        "isUsed": false,
-        "img": "",
-        "gender": "",
-        "isAlive": true,
-        "statusText": "Осматривается",
-        "isfinallyMovedFromGame": false
-      },
-      {
-        "name": "Echpochmak",
-        "isUsed": false,
-        "img": "",
-        "gender": "",
-        "isAlive": true,
-        "statusText": "Осматривается",
-        "isfinallyMovedFromGame": false
-      },
-      {
-        "name": "Нова",
-        "isUsed": false,
-        "img": "",
-        "gender": "",
-        "isAlive": true,
-        "statusText": "Осматривается",
-        "isfinallyMovedFromGame": false
-      },
-      {
-        "name": "Тархун",
-        "isUsed": false,
-        "img": "",
-        "gender": "",
-        "isAlive": true,
-        "statusText": "Осматривается",
-        "isfinallyMovedFromGame": false
-      }
-    ]);
-    setAppState('game');
-    // if (list.length > 1) {
-    //   setAppState('game');
-    //   setHelpText('');
-    // } else {
-    //   setHelpText("Нужно добавить как минимум 2 персонажа");
-    // }
+    setUsersList(list);
+    // setUsersList([
+    //   {
+    //     "name": "Сельдерей",
+    //     "isUsed": false,
+    //     "img": "",
+    //     "gender": "",
+    //     "isAlive": true,
+    //     "statusText": "Осматривается",
+    //     "isfinallyMovedFromGame": false
+    //   },
+    //   {
+    //     "name": "Умка",
+    //     "isUsed": false,
+    //     "img": "",
+    //     "gender": "",
+    //     "isAlive": true,
+    //     "statusText": "Осматривается",
+    //     "isfinallyMovedFromGame": false
+    //   },
+    //   {
+    //     "name": "Chas_mem",
+    //     "isUsed": false,
+    //     "img": "",
+    //     "gender": "",
+    //     "isAlive": true,
+    //     "statusText": "Осматривается",
+    //     "isfinallyMovedFromGame": false
+    //   },
+    //   {
+    //     "name": "Echpochmak",
+    //     "isUsed": false,
+    //     "img": "",
+    //     "gender": "",
+    //     "isAlive": true,
+    //     "statusText": "Осматривается",
+    //     "isfinallyMovedFromGame": false
+    //   },
+    //   {
+    //     "name": "Нова",
+    //     "isUsed": false,
+    //     "img": "",
+    //     "gender": "",
+    //     "isAlive": true,
+    //     "statusText": "Осматривается",
+    //     "isfinallyMovedFromGame": false
+    //   },
+    //   {
+    //     "name": "Тархун",
+    //     "isUsed": false,
+    //     "img": "",
+    //     "gender": "",
+    //     "isAlive": true,
+    //     "statusText": "Осматривается",
+    //     "isfinallyMovedFromGame": false
+    //   }
+    // ]);
+    // setAppState('game');
+    if (list.length > 1) {
+      setAppState('game');
+      setHelpText('');
+    } else {
+      setHelpText("Нужно добавить как минимум 2 персонажа");
+    }
   }
   function endGame() {
     setHelpText('');
