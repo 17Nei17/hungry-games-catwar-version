@@ -58,7 +58,6 @@ function Game(props) {
         let currentFriendName = user.name;
 
         let action = Math.floor(Math.random() * 100);
-        console.log(action);
         if (action >= 0 && action <= 10) {
             action = 'suicide';
         } else if (action > 10 && action <= 50) {

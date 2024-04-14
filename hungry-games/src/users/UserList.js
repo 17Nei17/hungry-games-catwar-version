@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // let obj = { img: 'src', name: 'str', gender: 'srt', friend: 'name' }
 
 function UserList(props) {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(props.usersList);
   const [isShowForm, setShowForm] = useState(false);
   useEffect(() => {
 
@@ -54,6 +54,10 @@ function UserList(props) {
     setShowForm(false);
   }
 
+  function startGame(users) {
+    props.startGame(users);
+  }
+
 
   return (
     <div>
@@ -63,7 +67,8 @@ function UserList(props) {
       </div>
       {!isShowForm && <button onClick={() => { setShowForm(true) }}>Добавить участника</button>}
       {!isShowForm && <button onClick={() => { clearUserList() }}>Удалить всех</button>}
-      <button onClick={() => { props.startGame(users) }}>Начать игру</button>
+      <button onClick={() => { startGame(users) }}>Начать игру</button>
+      <button className="about-button" onClick={() => { props.setAppState("about"); props.setHelpText('') }}>Информация</button>
     </div>
 
   );

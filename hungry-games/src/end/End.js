@@ -19,6 +19,7 @@ function End(props) {
     return (
         <div className="userItem">
             {setAliveName()}
+            <button onClick={() => { props.restart() }}>Вернуться к списку персонажей</button>
         </div>
     );
 }

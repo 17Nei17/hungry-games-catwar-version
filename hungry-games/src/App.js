@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import UserList from './users/UserList';
 import Game from './game/Game';
 import End from './end/End';
+import About from "./about/About"
 
 
 function App() {
@@ -12,7 +13,46 @@ function App() {
 
   function startGame(list) {
     setUsersList(list);
-    // setUsersList([
+    if (list.length > 1) {
+      setAppState('game');
+      setHelpText('');
+    } else {
+      setHelpText("Нужно добавить как минимум 2 персонажа");
+    }
+  }
+  function endGame() {
+    setHelpText('');
+    setAppState('end')
+  }
+
+  function restart() {
+    let oldArrUserList = usersList;
+    oldArrUserList.forEach((user) => {
+      user.isUsed = false;
+      user.isAlive = true;
+      user.statusText = "Осматривается";
+      user.isfinallyMovedFromGame = false;
+    })
+    setUsersList(oldArrUserList);
+    setAppState("settings");
+  }
+
+  return (
+    <div className="App">
+      <div class="info-text">{helpText}</div>
+      {appState === 'settings' && <UserList startGame={startGame} usersList={usersList} setHelpText={setHelpText} setAppState={setAppState} />}
+      {appState === 'game' && <Game usersList={usersList} endGame={endGame} setUsersList={setUsersList} />}
+      {appState === 'end' && <End usersList={usersList} restart={restart} />}
+      {appState === 'about' && <About setAppState={setAppState} setHelpText={setHelpText}/>}
+    </div>
+  );
+}
+
+export default App;
+
+
+
+  // setUsersList([
     //   {
     //     "name": "Сельдерей",
     //     "isUsed": false,
@@ -69,26 +109,3 @@ function App() {
     //   }
     // ]);
     // setAppState('game');
-    if (list.length > 1) {
-      setAppState('game');
-      setHelpText('');
-    } else {
-      setHelpText("Нужно добавить как минимум 2 персонажа");
-    }
-  }
-  function endGame() {
-    setHelpText('');
-    setAppState('end')
-  }
-
-  return (
-    <div className="App">
-      <div class="info-text">{helpText}</div>
-      {appState === 'settings' && <UserList startGame={startGame} setHelpText={setHelpText} />}
-      {appState === 'game' && <Game usersList={usersList} endGame={endGame} setUsersList={setUsersList}/>}
-      {appState === 'end' && <End usersList={usersList} />}
-    </div>
-  );
-}
-
-export default App;
