@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hungry-games-catwar-version/static/css/main.683547a0.css",
-    "main.js": "/hungry-games-catwar-version/static/js/main.e5287e6a.js",
+    "main.css": "/hungry-games-catwar-version/static/css/main.903bc4b7.css",
+    "main.js": "/hungry-games-catwar-version/static/js/main.9ef00c5e.js",
     "static/js/453.9e0338e4.chunk.js": "/hungry-games-catwar-version/static/js/453.9e0338e4.chunk.js",
     "index.html": "/hungry-games-catwar-version/index.html",
-    "main.683547a0.css.map": "/hungry-games-catwar-version/static/css/main.683547a0.css.map",
-    "main.e5287e6a.js.map": "/hungry-games-catwar-version/static/js/main.e5287e6a.js.map",
+    "main.903bc4b7.css.map": "/hungry-games-catwar-version/static/css/main.903bc4b7.css.map",
+    "main.9ef00c5e.js.map": "/hungry-games-catwar-version/static/js/main.9ef00c5e.js.map",
     "453.9e0338e4.chunk.js.map": "/hungry-games-catwar-version/static/js/453.9e0338e4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.683547a0.css",
-    "static/js/main.e5287e6a.js"
+    "static/css/main.903bc4b7.css",
+    "static/js/main.9ef00c5e.js"
   ]
 }
