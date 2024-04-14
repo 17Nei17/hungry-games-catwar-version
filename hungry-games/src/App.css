@@ -41,6 +41,7 @@
   padding: 12px;
   background-color: wheat;
   border-radius: 10px;
+  max-width: 400px;
 }
 
 .userItem-wrap {
